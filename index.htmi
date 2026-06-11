@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars – Tabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #eaeaea;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e63946;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #111;
+        }
+
+        .tabs button {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .tabs button:hover {
+            background-color: #222;
+        }
+
+        .tabs button.active {
+            background-color: #e63946;
+            color: #fff;
+        }
+
+        /* Tab content */
+        .content {
+            display: none;
+            padding: 20px;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .car-box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(230,57,70,0.25);
+        }
+
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cars</h1>
+    <p>Choose a car category</p>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="openTab('sedan')">Sedan</button>
+    <button class="tab-btn" onclick="openTab('suv')">SUV</button>
+    <button class="tab-btn" onclick="openTab('sports')">Sports</button>
+    <button class="tab-btn" onclick="openTab('electric')">Electric</button>
+</div>
+
+<!-- Content -->
+<div id="sedan" class="content active">
+    <div class="car-box">
+        <h2>Sedan</h2>
+        <p>Sedans are smooth, comfortable, and perfect for daily city driving.</p>
+    </div>
+</div>
+
+<div id="suv" class="content">
+    <div class="car-box">
+        <h2>SUV</h2>
+        <p>SUVs provide more space, power, and better road presence.</p>
+    </div>
+</div>
+
+<div id="sports" class="content">
+    <div class="car-box">
+        <h2>Sports Car</h2>
+        <p>Sports cars are built for speed, performance, and aggressive design.</p>
+    </div>
+</div>
+
+<div id="electric" class="content">
+    <div class="car-box">
+        <h2>Electric Car</h2>
+        <p>Electric cars run on batteries and help reduce pollution.</p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Cars Tabs Website</p>
+</footer>
+
+<script>
+    function openTab(tabId) {
+        let contents = document.querySelectorAll('.content');
+        let buttons = document.querySelectorAll('.tab-btn');
+
+        contents.forEach(c => c.classList.remove('active'));
+        buttons.forEach(b => b.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
